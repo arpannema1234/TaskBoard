@@ -113,7 +113,7 @@ export default function DashboardPage() {
           </h1>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 sm:py-2 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base"
+            className="w-full sm:w-auto bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-medium py-2.5 sm:py-2 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base"
           >
             Create New Board
           </button>

@@ -44,7 +44,7 @@ export default function TaskCard({
         <div className="flex items-start space-x-3 flex-1">
           <button
             onClick={() => onToggleTask(task.id, task.status)}
-            className={`mt-1 w-5 h-5 sm:w-6 sm:h-6 rounded border-2 flex items-center justify-center transition-colors ${
+            className={`mt-1 w-5 cursor-pointer h-5 sm:w-6 sm:h-6 rounded border-2 flex items-center justify-center transition-colors ${
               task.status === "completed"
                 ? "bg-green-500 border-green-500 text-white"
                 : "border-gray-300 hover:border-green-500"
@@ -114,11 +114,11 @@ export default function TaskCard({
             </div>
           </div>
         </div>
-
+        {/* Actions */}
         <div className="flex items-center space-x-1 sm:space-x-2 ml-2 sm:ml-4 flex-shrink-0">
           <button
             onClick={() => onEditTask(task)}
-            className="text-blue-600 hover:text-blue-700 p-1 sm:p-2 rounded-md hover:bg-blue-50 transition-colors"
+            className="text-blue-600 hover:text-blue-700 p-1 sm:p-2 rounded-md hover:bg-blue-50 transition-colors cursor-pointer"
             title="Edit task"
             aria-label="Edit task"
           >
@@ -138,7 +138,7 @@ export default function TaskCard({
           </button>
           <button
             onClick={() => onDeleteTask(task.id)}
-            className="text-red-600 hover:text-red-700 p-1 sm:p-2 rounded-md hover:bg-red-50 transition-colors"
+            className="text-red-600 hover:text-red-700 p-1 sm:p-2 rounded-md hover:bg-red-50 transition-colors cursor-pointer"
             title="Delete task"
             aria-label="Delete task"
           >

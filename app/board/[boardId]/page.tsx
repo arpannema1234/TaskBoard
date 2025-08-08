@@ -224,7 +224,7 @@ export default function BoardPage({
           <div className="flex-1">
             <button
               onClick={() => router.push("/dashboard")}
-              className="text-blue-600 hover:text-blue-700 font-medium mb-3 sm:mb-2 flex items-center text-sm sm:text-base transition-colors"
+              className="text-blue-600 cursor-pointer hover:text-blue-700 font-medium mb-3 sm:mb-2 flex items-center text-sm sm:text-base transition-colors"
             >
               <svg
                 className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
@@ -248,7 +248,7 @@ export default function BoardPage({
           <div className="flex-shrink-0">
             <button
               onClick={() => setShowTaskModal(true)}
-              className="w-full lg:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 sm:py-2 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base"
+              className="w-full lg:w-auto cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 sm:py-2 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base"
             >
               <span className="sm:hidden">Add Task</span>
               <span className="hidden sm:inline">Add New Task</span>

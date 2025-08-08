@@ -46,13 +46,11 @@ export default function BoardsList({
       {boards.map((board) => (
         <div
           key={board.id}
+          onClick={() => onBoardClick(board.id)}
           className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer group"
         >
           <div className="flex justify-between items-start mb-4">
-            <h3
-              className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors"
-              onClick={() => onBoardClick(board.id)}
-            >
+            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
               {board.name}
             </h3>
             <button
@@ -60,7 +58,7 @@ export default function BoardsList({
                 e.stopPropagation();
                 onDeleteBoard(board.id);
               }}
-              className="opacity-0 group-hover:opacity-100 text-red-600 hover:text-red-700 transition-opacity"
+              className="opacity-0 cursor-pointer group-hover:opacity-100 text-red-600 hover:text-red-700 transition-opacity"
               title="Delete board"
             >
               <svg

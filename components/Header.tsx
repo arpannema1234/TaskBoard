@@ -43,13 +43,13 @@ export default function Header() {
           <nav className="hidden sm:flex items-center space-x-4 lg:space-x-6">
             <button
               onClick={() => router.push("/dashboard")}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base"
+              className="text-gray-700 cursor-pointer hover:text-blue-600 font-medium transition-colors text-sm lg:text-base"
             >
               Dashboard
             </button>
             <button
               onClick={handleLogout}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 lg:px-6 rounded-lg transition-colors text-sm lg:text-base"
+              className="bg-gray-200 cursor-pointer hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 lg:px-6 rounded-lg transition-colors text-sm lg:text-base"
             >
               Logout
             </button>
