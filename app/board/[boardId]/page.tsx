@@ -255,13 +255,11 @@ export default function BoardPage({
             </button>
           </div>
         </div>
-
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-md mb-6 text-sm sm:text-base">
             {error}
           </div>
         )}
-
         <div className="w-full">
           <TasksList
             tasks={tasks}
@@ -270,14 +268,13 @@ export default function BoardPage({
             onDeleteTask={handleDeleteTask}
           />
         </div>
-
-        <TaskModal
-          isOpen={showTaskModal}
-          task={editingTask}
-          onClose={handleCloseTaskModal}
-          onSave={handleSaveTask}
-        />
-
+        {showTaskModal && (
+          <TaskModal
+            task={editingTask}
+            onClose={handleCloseTaskModal}
+            onSave={handleSaveTask}
+          />
+        )}
         <ConfirmModal
           isOpen={showDeleteConfirm}
           title="Delete Task"

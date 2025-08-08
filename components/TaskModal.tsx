@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { Task } from "@/types";
 
 interface TaskModalProps {
-  isOpen: boolean;
   task: Task | null; // If provided, it's edit mode; if not, it's create mode
   onClose: () => void;
   onSave: (taskData: {
@@ -15,12 +14,7 @@ interface TaskModalProps {
   }) => void;
 }
 
-export default function TaskModal({
-  isOpen,
-  task,
-  onClose,
-  onSave,
-}: TaskModalProps) {
+export default function TaskModal({ task, onClose, onSave }: TaskModalProps) {
   const isEditMode = !!task;
 
   const [title, setTitle] = useState("");
@@ -38,13 +32,13 @@ export default function TaskModal({
       setDueDate(
         task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : ""
       );
-    } else {
-      // Reset form for create mode
+    }
+    return () => {
       setTitle("");
       setDescription("");
       setStatus("pending");
       setDueDate("");
-    }
+    };
   }, [task]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,30 +68,10 @@ export default function TaskModal({
       taskData.status = status;
     }
 
-    await onSave(taskData);
+    onSave(taskData);
     setIsLoading(false);
-
-    // Reset form only in create mode
-    if (!isEditMode) {
-      setTitle("");
-      setDescription("");
-      setDueDate("");
-      setStatus("pending");
-    }
-  };
-
-  const handleClose = () => {
-    // Reset form only in create mode
-    if (!isEditMode) {
-      setTitle("");
-      setDescription("");
-      setDueDate("");
-      setStatus("pending");
-    }
     onClose();
   };
-
-  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -107,7 +81,7 @@ export default function TaskModal({
             {isEditMode ? "Edit Task" : "Create New Task"}
           </h2>
           <button
-            onClick={handleClose}
+            onClick={onClose}
             className="text-gray-400 hover:text-gray-600 p-1 rounded-md hover:bg-gray-100 transition-colors"
             aria-label="Close modal"
           >
@@ -224,7 +198,7 @@ export default function TaskModal({
           <div className="flex flex-col sm:flex-row gap-3 pt-4 sm:pt-6">
             <button
               type="button"
-              onClick={handleClose}
+              onClick={onClose}
               className="w-full sm:flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors text-sm sm:text-base"
             >
               Cancel

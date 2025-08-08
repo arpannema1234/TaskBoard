@@ -63,6 +63,14 @@
       "dueDate": "2025-08-09",
       "boardId": "me1qbysyrg26q7xuug",
       "createdAt": "2025-08-07T18:27:59.320Z"
+    },
+    {
+      "id": "me32fxg3wyd7q4wzj2k",
+      "title": "task 22",
+      "description": "oigjn",
+      "status": "completed",
+      "boardId": "me1qbysyrg26q7xuug",
+      "createdAt": "2025-08-08T16:54:23.764Z"
     }
   ]
 }
