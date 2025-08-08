@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Task } from "@/types";
 
 interface TaskModalProps {
@@ -23,15 +23,29 @@ export default function TaskModal({
 }: TaskModalProps) {
   const isEditMode = !!task;
 
-  const [title, setTitle] = useState(task?.title || "");
-  const [description, setDescription] = useState(task?.description || "");
-  const [status, setStatus] = useState<"pending" | "completed">(
-    task?.status || "pending"
-  );
-  const [dueDate, setDueDate] = useState(
-    task?.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : ""
-  );
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState<"pending" | "completed">("pending");
+  const [dueDate, setDueDate] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // Update form values when task prop changes
+  useEffect(() => {
+    if (task) {
+      setTitle(task.title || "");
+      setDescription(task.description || "");
+      setStatus(task.status || "pending");
+      setDueDate(
+        task.dueDate ? new Date(task.dueDate).toISOString().split("T")[0] : ""
+      );
+    } else {
+      // Reset form for create mode
+      setTitle("");
+      setDescription("");
+      setStatus("pending");
+      setDueDate("");
+    }
+  }, [task]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
