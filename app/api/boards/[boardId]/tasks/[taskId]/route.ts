@@ -9,11 +9,11 @@ import { APIResponse } from "@/types";
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { boardId: string; taskId: string } }
+  { params }: { params: Promise<{ boardId: string; taskId: string }> }
 ) {
   try {
     const userId = request.headers.get("x-user-id");
-    const { boardId, taskId } = params;
+    const { boardId, taskId } = await params;
 
     if (!userId) {
       return NextResponse.json<APIResponse>(
@@ -159,11 +159,11 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { boardId: string; taskId: string } }
+  { params }: { params: Promise<{ boardId: string; taskId: string }> }
 ) {
   try {
     const userId = request.headers.get("x-user-id");
-    const { boardId, taskId } = params;
+    const { boardId, taskId } = await params;
 
     if (!userId) {
       return NextResponse.json<APIResponse>(

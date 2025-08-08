@@ -4,11 +4,11 @@ import { APIResponse } from "@/types";
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { boardId: string } }
+  { params }: { params: Promise<{ boardId: string }> }
 ) {
   try {
     const userId = request.headers.get("x-user-id");
-    const { boardId } = params;
+    const { boardId } = await params;
 
     if (!userId) {
       return NextResponse.json<APIResponse>(
@@ -87,11 +87,11 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { boardId: string } }
+  { params }: { params: Promise<{ boardId: string }> }
 ) {
   try {
     const userId = request.headers.get("x-user-id");
-    const { boardId } = params;
+    const { boardId } = await params;
 
     if (!userId) {
       return NextResponse.json<APIResponse>(

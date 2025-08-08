@@ -62,11 +62,11 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { boardId: string } }
+  { params }: { params: Promise<{ boardId: string }> }
 ) {
   try {
     const userId = request.headers.get("x-user-id");
-    const { boardId } = params;
+    const { boardId } = await params;
 
     if (!userId) {
       return NextResponse.json<APIResponse>(

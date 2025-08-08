@@ -7,6 +7,7 @@ import {
   isValidPassword,
 } from "@/lib/auth";
 import { APIResponse } from "@/types";
+import { cookies } from "next/headers";
 
 export async function POST(request: NextRequest) {
   try {
@@ -63,13 +64,23 @@ export async function POST(request: NextRequest) {
     });
 
     // Generate JWT token
-    const token = generateToken({
+    const token = await generateToken({
       userId: user.id,
       email: user.email,
     });
 
-    // Create response with HTTP-only cookie
-    const response = NextResponse.json<APIResponse>({
+    // Set HTTP-only cookie using cookies from next/headers
+    const cookieStore = await cookies();
+    cookieStore.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+      path: "/",
+    });
+
+    // Create response
+    return NextResponse.json<APIResponse>({
       success: true,
       message: "User registered successfully",
       data: {
@@ -80,16 +91,6 @@ export async function POST(request: NextRequest) {
         },
       },
     });
-
-    // Set HTTP-only cookie
-    response.cookies.set("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 7 * 24 * 60 * 60, // 7 days
-    });
-
-    return response;
   } catch (error) {
     console.error("Registration error:", error);
     return NextResponse.json<APIResponse>(
