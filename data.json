@@ -17,6 +17,12 @@
       "email": "test3@test.com",
       "password": "$2b$12$0NFxYJROXmeDlMy7x088weGQHUP0ozry6gFyY1FMyKIAzxKY4Gbp2",
       "createdAt": "2025-08-08T09:54:30.030Z"
+    },
+    {
+      "id": "me2tpxzihnzzakkx647",
+      "email": "test6@test.com",
+      "password": "$2b$12$TcqWGvu3LIjRvtpRSwqtcOVV0fYI4fbCni/AJlZGivS6wxdvKkEha",
+      "createdAt": "2025-08-08T12:50:14.478Z"
     }
   ],
   "boards": [
