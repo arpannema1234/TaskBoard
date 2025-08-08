@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "me1ah3auqqosxvepex",
+      "email": "test@test.com",
+      "password": "$2b$12$yFRCxWRu7npfi.Gu0jNQ/uqJhejeDul.XMFSPqRsIh0YWCDA54Aca",
+      "createdAt": "2025-08-07T11:03:42.582Z"
+    },
+    {
+      "id": "me1pchy7ugugpdyalmn",
+      "email": "test2@test.com",
+      "password": "$2b$12$5lgKVD783JgAiifA4FU6JOUOoJ6pLFbYPvpqW/9D9ebmVDsoMgmga",
+      "createdAt": "2025-08-07T18:00:02.527Z"
+    },
+    {
+      "id": "me2nfxu61jwlcma5qie",
+      "email": "test3@test.com",
+      "password": "$2b$12$0NFxYJROXmeDlMy7x088weGQHUP0ozry6gFyY1FMyKIAzxKY4Gbp2",
+      "createdAt": "2025-08-08T09:54:30.030Z"
+    }
+  ],
+  "boards": [
+    {
+      "id": "me1pbtl8zsn8q2tizxs",
+      "name": "Arpan",
+      "userId": "me1ah3auqqosxvepex",
+      "createdAt": "2025-08-07T17:59:30.956Z"
+    },
+    {
+      "id": "me1pd1r2kq2g7gn8b7a",
+      "name": "work",
+      "userId": "me1pchy7ugugpdyalmn",
+      "createdAt": "2025-08-07T18:00:28.190Z"
+    },
+    {
+      "id": "me1qbysyrg26q7xuug",
+      "name": "Personal",
+      "userId": "me1ah3auqqosxvepex",
+      "createdAt": "2025-08-07T18:27:37.330Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "me1q1krzs4m776hrsah",
+      "title": "Work 1",
+      "description": "This is a task discription",
+      "status": "completed",
+      "dueDate": "2025-08-08",
+      "boardId": "me1pd1r2kq2g7gn8b7a",
+      "createdAt": "2025-08-07T18:19:32.591Z"
+    },
+    {
+      "id": "me1qcfrsin1i6v8os7h",
+      "title": "This is a task",
+      "description": "This is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a taskThis is a task",
+      "status": "pending",
+      "dueDate": "2025-08-09",
+      "boardId": "me1qbysyrg26q7xuug",
+      "createdAt": "2025-08-07T18:27:59.320Z"
+    }
+  ]
+}
