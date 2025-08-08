@@ -148,7 +148,6 @@ export default function BoardPage({
   };
 
   const handleDeleteTask = (taskId: string) => {
-    console.log(taskId);
     setTaskToDelete(taskId);
     setShowDeleteConfirm(true);
   };

@@ -30,7 +30,6 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    // Verify the token
     const payload = await verifyToken(token);
 
     // Add user info to request headers for API routes
